@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
   # Associations
-  belongs_to :booking
+  belongs_to :user
+  belongs_to :listing
 end

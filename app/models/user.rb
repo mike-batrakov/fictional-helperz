@@ -7,7 +7,5 @@ class User < ApplicationRecord
   # has_one_attached :avatar
   has_many :listings
   has_many :bookings
-  has_many :reviews, through: :bookings
-
-  validates :name, presence: true, length: { maximum: 30 }
+  has_many :reviews
 end
