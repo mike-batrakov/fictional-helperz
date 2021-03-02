@@ -1,5 +1,7 @@
 class Listing < ApplicationRecord
   # Associations
-  has_many :listings, through: :bookings
+  belongs_to :user
+  belongs_to :category
+  has_many :reviews, through: :bookings
   has_many :bookings, dependant: :destroy
 end

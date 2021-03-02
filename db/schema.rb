@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_214813) do
+ActiveRecord::Schema.define(version: 2021_03_02_004717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.boolean "status"
+    t.integer "starts_date"
+    t.integer "end_date"
     t.bigint "user_id", null: false
     t.bigint "listing_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -25,14 +27,29 @@ ActiveRecord::Schema.define(version: 2021_02_27_214813) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "listings", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.text "description"
-    t.string "category"
+    t.string "photo"
+    t.integer "price"
+    t.boolean "status"
     t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "rating", default: 1
+    t.bigint "booking_id", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,5 +68,7 @@ ActiveRecord::Schema.define(version: 2021_02_27_214813) do
 
   add_foreign_key "bookings", "listings"
   add_foreign_key "bookings", "users"
+  add_foreign_key "listings", "categories"
   add_foreign_key "listings", "users"
+  add_foreign_key "reviews", "bookings"
 end
