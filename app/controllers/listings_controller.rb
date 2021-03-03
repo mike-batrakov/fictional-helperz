@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    #not sure whether I should add anything here
   end
 
   def create
@@ -39,5 +40,4 @@ class ListingsController < ApplicationController
   def listing_params
     params[:listings].permit(:name, :description, :status) #did not add :photo, :price: status. At least not yet.
   end
-
 end
