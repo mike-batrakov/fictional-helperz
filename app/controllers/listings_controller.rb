@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-    @Listings
+
   end
 
   def show
