@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def gstclassnew
+  def new
     @booking = Booking.new
   end
 
