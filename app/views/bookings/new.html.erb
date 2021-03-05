@@ -1,7 +1,5 @@
 
 <%= simple_form_for [@listings, @bookings] do |f| %>
 <%= f.input :status %>
-<%= f.input :starts_date %>
-<%= f.input :end_date %>
 <%= f.submit "Book now" class: "btn btn-primary"%>
 <% end %>

@@ -6,21 +6,19 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @listing = Listing.find(params[:listing_id])
+    @booking.listing = Listing.find(params[:listing_id])
     @booking.user = current_user
-
-    @booking.listing = @listing
 
     if @booking.save
       redirect_to listing_path(@listing)
     else
-      render :new
+      render :new_listing_booking
     end
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:status, :starts_date, :end_date)
+    params.require(:booking).permit(:status)
   end
 end
