@@ -7,4 +7,5 @@ class User < ApplicationRecord
   # Associations
   has_many :listings
   has_many :bookings
+
 end
