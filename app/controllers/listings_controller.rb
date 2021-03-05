@@ -1,11 +1,10 @@
 class ListingsController < ApplicationController
-
+  before_action :set_listing, only: [:show, :edit, :update]
   def index
     @listings = Listing.all
   end
 
   def show
-    @listing = Listing.find(params[:id])
   end
 
   def new
@@ -23,8 +22,11 @@ class ListingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    @listing = Listing.new(listing_params)
+    @listing.update(listing_params)
     if @listing.save!
       redirect_to listing_path(@listing)
     else

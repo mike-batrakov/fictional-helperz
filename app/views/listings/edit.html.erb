@@ -1,0 +1,7 @@
+<h1>Edit Listing</h1>
+
+<%= simple_form_for [@user, @listing] do |l| %>
+  <%= l.input :name %>
+  <%= l.input :description %>
+  <%= l.submit %>
+<% end %>
