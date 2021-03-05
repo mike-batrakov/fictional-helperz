@@ -1,7 +1,5 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.all
-  end
+
 
   def new
     @listing = Listing.find(params[:listing_id])
@@ -10,13 +8,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking =
+    @booking = Booking.new(booking_params)
+
+    @listing = Listing.find
 
   end
 
-  def show
+  private
+
+  def booking_params
+    params.require
   end
 
-  def update
-  end
 end
