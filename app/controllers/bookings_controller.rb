@@ -4,10 +4,14 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @listing = Listing.find(params[:listing_id])
     @booking = Booking.new
+
   end
 
   def create
+    @booking =
+
   end
 
   def show
