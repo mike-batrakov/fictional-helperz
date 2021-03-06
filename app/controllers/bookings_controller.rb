@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
   def new
-    @bookings = Booking.new
+    @booking = Booking.new
+    @booking.status = true
+    @booking.listing = Listing.find(params[:listing_id])
+
   end
 
   def edit

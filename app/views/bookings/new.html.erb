@@ -1,6 +1,11 @@
-<h1>Book your favorite Superhero</h1>
+<div class="container-status">
+  <p>You want to book :</p>
+  <h2><%= @booking.listing.name %></h2><br>
+  <p>Booking status :
+  <% if @booking.status %>
+  Approved!
+  <% else %>
+  Pending
+  <% end %>
+</div>
 
-
-<%= simple_form_for [@bookings] do |f| %>
-<%= f.submit "Book now" class: "btn btn-primary"%>
-<% end %>
