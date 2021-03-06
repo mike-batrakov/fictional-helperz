@@ -1,6 +1,36 @@
-<h1>Listings Index</h1>
+<div class="container-card">
+  <% @listings.each do |listing| %>
+  <div class="card bg-light mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= listing.name %></h5>
+      <p class="card-text"><%= listing.description %></p>
+      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
+    </div>  
+  </div>
+  <% end %>
+</div>
 
-<% @listings.each do |listing| %>
-<p><%= listing.name %></p>
-<p><%= listing.description %></p>
-<% end %>
+<div class="container-card">
+  <% @listings.each do |listing| %>
+  <div class="card bg-light mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= listing.name %></h5>
+      <p class="card-text"><%= listing.description %></p>
+      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
+    </div>  
+  </div>
+  <% end %>
+</div>
+
+<div class="container-card">
+  <% @listings.each do |listing| %>
+  <div class="card bg-light mb-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= listing.name %></h5>
+      <p class="card-text"><%= listing.description %></p>
+      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
+    </div>  
+  </div>
+  <% end %>
+</div>
+>>>>>>> master

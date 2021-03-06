@@ -40,29 +40,29 @@ puts 'User for Michael was created'
 puts 'Creating listings ...'
 
 mary_listing = Listing.create!(
-  name: "Mary's listing",
-  description: "Testing Mary's listing description",
+  name: "PeteyPark's Listing",
+  description: "When I'm not fightin' crime, or with sweet sweet Mary-Jane, I can essentially offer my babysitting services.",
   user_id: mary.id
 )
 puts 'Listing for Mary was created'
 
 tep_listing = Listing.create!(
-  name: "Tep's listing",
-  description: "Testing Tep's listing description",
+  name: "Bathuman's listing",
+  description: "When I'm not preoccupied with the Bat-family, I can offer my services as a bouncer. I have experience.",
   user_id: tep.id
 )
 puts 'Listing for Tep was created'
 
 nazim_listing = Listing.create!(
-  name: "Nazim's listing",
-  description: "Testing Nazim's listing description",
+  name: "Bugs Bunny's listing",
+  description: "M'yeh.. Wassup, doc?",
   user_id: nazim.id
 )
 puts 'Listing for Nazim was created'
 
 michael_listing = Listing.create!(
-  name: "Michael's listing",
-  description: "Testing Michael's listing description",
+  name: "He-Man's listing",
+  description: "With the power of grayskull, I offer my services as a driver.",
   user_id: michael.id
 )
 puts 'Listing for Nazim was created'
