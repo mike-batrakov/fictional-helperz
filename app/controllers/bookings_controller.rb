@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(rental_params)
-    @booking.item = Listing.find(params[:listing_id])
+    @booking.listing = Listing.find(params[:listing_id])
     @booking.user = current_user
     @booking.status = true
     @booking.save
