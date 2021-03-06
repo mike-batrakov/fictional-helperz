@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update]
+  before_action :set_listing, only: %i[show edit update]
 
   def index
     @listings = Listing.all
@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
-    @listing.user = current_user
+    # @listing.user = current_user
   end
 
   def create
@@ -42,7 +42,6 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:name, :description) #did not add :photo, :price: status. At least not yet.
+    params.require(:listing).permit(:name, :description) # did not add :photo, :price: status. At least not yet.
   end
-
 end
