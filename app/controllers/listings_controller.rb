@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     # @listing.user = current_user
+    authorize @listing
   end
 
   def create
