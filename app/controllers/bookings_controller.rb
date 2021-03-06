@@ -12,17 +12,20 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = true
     @booking.save
+    redirect_to listings_path
   end
 
   def update
     @booking = Booking.find(params[:id])
     @booking.status = params[:status]
     @booking.save!
+    redirect_to listings_path
   end
 
   def destroy
     @rental = Booking.find(params[:id])
     @rental.destroy
+    redirect_to listings_path
   end
 
   private
