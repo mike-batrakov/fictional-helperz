@@ -1,1 +1,11 @@
-<h1>Listings Index</h1>
+<% @listings.each do |listing| %>
+ 
+ <div class="card bg-light mb-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= listing.name %></h5>
+    <p class="card-text"><%= listing.description %></p>
+    <a href="#" class="btn btn-primary">Preview</a>
+  </div>
+</div>
+
+<% end %>
