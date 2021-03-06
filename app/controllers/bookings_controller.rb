@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def new
-    @booking = Rental.new
+    @booking = Booking.new
+    @booking.status = true
   end
 
   def edit
