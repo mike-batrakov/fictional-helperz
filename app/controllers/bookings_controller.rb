@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.status = true
     @booking.listing = Listing.find(params[:listing_id])
+
   end
 
   def edit
@@ -26,14 +27,14 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @rental = Booking.find(params[:id])
-    @rental.destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
     redirect_to listings_path
   end
 
   private
 
   def booking_params
-    params.require(:rental).permit(:status)
+    params.require(:booking).permit(:status)
   end
 end
