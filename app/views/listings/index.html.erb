@@ -4,8 +4,10 @@
     <div class="card-body">
       <h5 class="card-title"><%= listing.name %></h5>
       <p class="card-text"><%= listing.description %></p>
+    </div>
+        <div class="btn-preview">
       <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
-    </div>  
+    </div>
   </div>
   <% end %>
 </div>
@@ -17,7 +19,7 @@
       <h5 class="card-title"><%= listing.name %></h5>
       <p class="card-text"><%= listing.description %></p>
       <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
-    </div>  
+    </div>
   </div>
   <% end %>
 </div>
@@ -29,7 +31,7 @@
       <h5 class="card-title"><%= listing.name %></h5>
       <p class="card-text"><%= listing.description %></p>
       <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
-    </div>  
+    </div>
   </div>
   <% end %>
 </div>
