@@ -1,3 +1,5 @@
+<h1>Services</h1>
+
 <div class="container-card">
   <% @listings.each do |listing| %>
   <div class="card bg-light mb-3" style="width: 18rem;">
@@ -6,7 +8,7 @@
       <p class="card-text"><%= listing.description %></p>
     </div>
         <div class="btn-preview">
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
+      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
     </div>
   </div>
   <% end %>
@@ -18,7 +20,9 @@
     <div class="card-body">
       <h5 class="card-title"><%= listing.name %></h5>
       <p class="card-text"><%= listing.description %></p>
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
+    </div>
+            <div class="btn-preview">
+      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
     </div>
   </div>
   <% end %>
@@ -30,7 +34,9 @@
     <div class="card-body">
       <h5 class="card-title"><%= listing.name %></h5>
       <p class="card-text"><%= listing.description %></p>
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-primary" %>
+    </div>
+            <div class="btn-preview">
+      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
     </div>
   </div>
   <% end %>
