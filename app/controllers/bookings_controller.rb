@@ -2,13 +2,14 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @booking.status = true
+    @booking.listing = Listing.find(params[:listing_id])
   end
 
   def edit
   end
 
   def create
-    @booking = Booking.new(rental_params)
+    @booking = Booking.new(booking_params)
     @booking.listing = Listing.find(params[:listing_id])
     @booking.user = current_user
     @booking.status = true
@@ -32,7 +33,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def rental_params
+  def booking_params
     params.require(:rental).permit(:status)
   end
 end
