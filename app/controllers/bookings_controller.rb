@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
-  def new
-    @booking = Booking.new
-    @booking.status = true
-    @booking.listing = Listing.find(params[:listing_id])
+  before_action :bookings, only: [:update, :destroy]
 
+  def new
+    @listing = Listing.find(params[:listing_id])
+    @booking = Booking.new
   end
 
   def edit
@@ -11,30 +11,29 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.listing = Listing.find(params[:listing_id])
-    @booking.user = current_user
-    @booking.status = true
+    @listing = Listing.find(params[:listing_id])
+    @booking.listing = @listing
     @booking.save
-
-    redirect_to listings_path
+    redirect_to bookings_path
   end
 
   def update
-    @booking = Booking.find(params[:id])
     @booking.status = params[:status]
     @booking.save!
     redirect_to listings_path
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to listings_path
   end
 
   private
 
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:status, :start_date, :end_date)
   end
 end
