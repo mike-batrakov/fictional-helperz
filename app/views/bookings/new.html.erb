@@ -2,8 +2,8 @@
 
 <%= simple_form_for [ @listing, @booking ] do |f| %>
 <%= f.association :listing, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
-<%= f.input :start_date, as: :date, html5: true %>
-<%= f.input :end_date, as: :date, html5: true %>
+<%= f.input :start_date %>
+<%= f.input :end_date%>
 <%= f.submit %>
 <% end %>
 

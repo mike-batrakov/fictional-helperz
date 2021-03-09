@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :bookings, only: [:update, :destroy]
+  before_action :find_booking, only: [:show, :update, :destroy]
 
   def new
     @listing = Listing.find(params[:listing_id])
@@ -12,9 +12,13 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @listing = Listing.find(params[:listing_id])
-    @booking.listing = @listing
+    @booking = current_user
+    @booking.listings = @listing
     @booking.save
-    redirect_to bookings_path
+    redirect_to booking_path(@booking)
+  end
+
+  def show 
   end
 
   def update
