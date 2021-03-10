@@ -1,0 +1,18 @@
+<h2>Confirmation</h2>
+
+<%= @booking.listing.name%>
+<br>
+<%= @booking.start_date %>
+
+<%= @booking.listing.status %>
+
+<p>Booking status :
+  <% if @booking.status %>
+  Approved!
+  <% else %>
+  Pending
+  <% end %>
+</div> 
+ %>
+
+<%# <%= link_to 'Back', booking_path(@listing.booking) %> 

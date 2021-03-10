@@ -72,7 +72,7 @@ puts 'Creating bookings ...'
 booking_one = Booking.create!(
   user_id: mary.id,
   listing_id: tep_listing.id,
-  status: true
+  status: true,
 )
 
 booking_two = Booking.create!(
