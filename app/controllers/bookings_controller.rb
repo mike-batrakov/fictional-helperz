@@ -18,20 +18,20 @@ class BookingsController < ApplicationController
     @booking.status = true
     @booking.save
     authorize @booking
-    redirect_to listings_path
+    redirect_to dashboard_path
   end
 
   def update
     @booking = Booking.find(params[:id])
     @booking.status = params[:status]
     @booking.save!
-    redirect_to listings_path
+    redirect_to dashboard_path
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to listings_path
+    redirect_to dashboard_path
   end
 
   private

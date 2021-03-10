@@ -13,7 +13,7 @@ class ListingPolicy < ApplicationPolicy
     true
   end
 
-  def update?
+  def update? 
     user == record.user
   end
 
