@@ -10,7 +10,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.user
+    if user == record.user
+      true
+    else
+      redirect_to home_path
+    end
   end
 
   def destroy?
