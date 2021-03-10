@@ -1,0 +1,15 @@
+<h1>Dashboard</h1>
+<h2>My listings</h2>
+<% @listings.each do |l|  %>
+<p><%= l.name %></p>
+<p><%= l.description %></p>
+<% end %>
+
+<hr>
+
+
+<h2>My bookings</h2>
+<% @bookings.each do |b|  %>
+<p><%= b.listing_id %></p>
+
+<% end %>

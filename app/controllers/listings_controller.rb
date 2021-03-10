@@ -1,8 +1,8 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update]
+  before_action :set_listing, only: %i[show edit update destroy]
 
   def index
-    @listings = Listing.all
+    @listings = policy_scope(Listing)
   end
 
   def show
@@ -10,14 +10,15 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
-    @listing.user = current_user
+    authorize @listing
   end
 
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    authorize @listing
     if @listing.save
-      redirect_to listing_path(@listing)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -35,14 +36,19 @@ class ListingsController < ApplicationController
     end
   end
 
+  def destroy
+    @listing.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_listing
     @listing = Listing.find(params[:id])
+    authorize @listing
   end
 
   def listing_params
-    params.require(:listing).permit(:name, :description) #did not add :photo, :price: status. At least not yet.
+    params.require(:listing).permit(:name, :description) # did not add :photo, :price: status. At least not yet.
   end
-
 end

@@ -1,44 +1,47 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:show, :update, :destroy]
+  before_action :find_booking, only: %i[show edit update destroy]
 
   def new
     @listing = Listing.find(params[:listing_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def edit
   end
 
   def create
-    @booking = Booking.new(booking_params) 
-   
+    @booking = Booking.new(booking_params)
     @listing = Listing.find(params[:listing_id])
     @booking.listing = @listing
     @booking.user = current_user
     @booking.save
-    redirect_to booking_path(@booking)
+    authorize @booking
+    redirect_to dashboard_path
   end
 
-  def show 
+  def show
   end
 
   def update
     @booking.status = params[:status]
     @booking.save!
-    redirect_to listings_path
+    redirect_to dashboard_path
   end
 
   def destroy
     @booking.destroy
-    redirect_to listings_path
+    redirect_to dashboard_path
   end
 
   private
 
-  def find_booking
-    @booking = Booking.find(params[:id])
+  def set_booking
+    @booking = Bookings.find(params[:id])
+    authorize @booking
   end
+
   def booking_params
-    params.require(:booking).permit(:status, :start_date, :end_date)
+    params.require(:booking).permit(:status)
   end
 end
