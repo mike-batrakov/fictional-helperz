@@ -9,7 +9,8 @@
 
 
 <h2>My bookings</h2>
-<% @bookings.each do |b|  %>
-<p><%= b.listing_id %></p>
-
+<% @bookings.each do |booking|  %>
+<p><% @name = booking.id %></p>
+<%= booking.listing.name %>
+<%= booking.listing.id %>
 <% end %>
