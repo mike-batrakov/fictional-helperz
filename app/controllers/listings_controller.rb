@@ -1,8 +1,9 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[show edit update]
+  before_action :set_listing, only: %i[show edit update destroy]
 
   def index
     @listings = Listing.all
+    authorize @listings
   end
 
   def show

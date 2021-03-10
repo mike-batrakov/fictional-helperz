@@ -1,9 +1,11 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[edit update destroy]
+
   def new
     @booking = Booking.new
     @booking.status = true
     @booking.listing = Listing.find(params[:listing_id])
-
+    authorize @booking
   end
 
   def edit
@@ -15,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = true
     @booking.save
-
+    authorize @booking
     redirect_to listings_path
   end
 
@@ -33,6 +35,11 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def set_booking
+    @booking = Bookings.find(params[:id])
+    authorize @booking
+  end
 
   def booking_params
     params.require(:booking).permit(:status)
