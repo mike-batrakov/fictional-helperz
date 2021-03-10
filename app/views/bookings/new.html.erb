@@ -1,11 +1,16 @@
-<div class="container-status">
-  <p>You want to book :</p>
-  <h2><%= @booking.listing.name %></h2><br>
+<h2>Book my SuperHelperz</h2>
+
+<%= simple_form_for [ @listing, @booking ] do |f| %>
+<%= f.association :listing, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+<%= f.input :start_date, as: :date, html5: true%>
+<%= f.submit %>
+<% end %>
+
   <p>Booking status :
   <% if @booking.status %>
   Approved!
   <% else %>
   Pending
   <% end %>
-</div>
-
+</div> 
+ %>
