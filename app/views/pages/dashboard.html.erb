@@ -1,16 +1,48 @@
 <h1>Dashboard</h1>
-<h2>My listings</h2>
-<% @listings.each do |l|  %>
-<p><%= l.name %></p>
-<p><%= l.description %></p>
+
+<h2>My Services</h2>
+
+<% @listings.each do |listing|  %>
+  <h4><%= listing.name %></h4>
+  <p><%= listing.description %></p>
 <% end %>
+
+<%= link_to "Add new service", new_listing_path, class: "btn btn-info", id: "button_create" %>
 
 <hr>
 
+<h2>Upcoming Bookings</h2>
 
-<h2>My bookings</h2>
 <% @bookings.each do |booking|  %>
-<p><% @name = booking.id %></p>
-<%= booking.listing.name %>
-<%= booking.listing.id %>
+  <% if booking.status && booking.start_date > Time.now %>
+    <p>Service: <%= booking.listing.name %></p>
+    <% time = Time.new %>
+    <p>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </p>
+    <p>Status: Approved!</p>
+    <p>With: <%= booking.listing.user.email %></p><br>
+  <% end %>
+<% end %>
+
+<h2>Pending Bookings</h2>
+
+<% @bookings.each do |booking|  %>
+  <% if booking.status == nil && booking.start_date > Time.now %>
+    <p>Service: <%= booking.listing.name %></p>
+    <% time = Time.new %>
+    <p>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </p>
+    <p>Status: Pending</p>
+    <p>With: <%= booking.listing.user.email %></p><br>
+  <% end %>
+<% end %>
+
+<h2>Past Bookings</h2>
+
+<% past_bookings = @bookings %>
+<% past_bookings.each do |booking|  %>
+  <% if booking.start_date < Time.now %>
+    <p>Service: <%= booking.listing.name %></p>
+    <% time = Time.new %>
+    <p>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </p>
+    <p>With: <%= booking.listing.user.email %></p><br>
+  <% end %>
 <% end %>
