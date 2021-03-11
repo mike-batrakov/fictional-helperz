@@ -8,9 +8,8 @@
   <p><%= listing.user_id %></p>
 <% end %>
 
-<%= link_to "Add new service", new_listing_path, class: "btn btn-info", id: "button_create" %>
-
-<hr>
+<%= link_to "New service", new_listing_path, class: "btn btn-info btn-sm", id: "button" %>
+<p>
 
 <h2>Requests</h2>
 
@@ -19,8 +18,10 @@
     <p>Service: <%= request.listing.name %></p>
     <p>Who's asking: <%= request.user.email %> </p>
     <p>Their user id: <%= request.user.id %></p>
-
-
+    <%# Implement actual working buttons %>
+    <%= link_to "Accept", root_path, class: "btn btn-success btn-sm", id: "button" %>
+    <%= link_to "Decline", root_path, class: "btn btn-danger btn-sm", id: "button" %>
+    <p>
   <% end %>
 <% end %>
 
@@ -31,8 +32,7 @@
     <p>Service: <%= booking.listing.name %></p>
     <% time = Time.new %>
     <p>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </p>
-    <p>Status: Approved!</p>
-    <p>With: <%= booking.listing.user.email %></p><br>
+    <p>By: <%= booking.listing.user.email %></p><br>
   <% end %>
 <% end %>
 
@@ -44,7 +44,7 @@
     <% time = Time.new %>
     <p>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </p>
     <p>Status: Pending</p>
-    <p>With: <%= booking.listing.user.email %></p><br>
+    <p>By: <%= booking.listing.user.email %></p><br>
   <% end %>
 <% end %>
 
@@ -56,6 +56,6 @@
     <p>Service: <%= booking.listing.name %></p>
     <% time = Time.new %>
     <p>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </p>
-    <p>With: <%= booking.listing.user.email %></p><br>
+    <p>By: <%= booking.listing.user.email %></p><br>
   <% end %>
 <% end %>
