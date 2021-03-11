@@ -5,7 +5,6 @@
 <% @listings.each do |listing|  %>
   <h4><%= listing.name %></h4>
   <p><%= listing.description %></p>
-  <p><%= listing.user_id %></p>
 <% end %>
 
 <%= link_to "New service", new_listing_path, class: "btn btn-info btn-sm", id: "button" %>
@@ -50,9 +49,8 @@
 
 <h2>Past Bookings</h2>
 
-<% past_bookings = @bookings %>
-<% past_bookings.each do |booking|  %>
-  <% if booking.start_date < Time.now %>
+<% @bookings.each do |booking|  %>
+  <% if booking.status && booking.start_date < Time.now %>
     <p>Service: <%= booking.listing.name %></p>
     <% time = Time.new %>
     <p>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </p>
