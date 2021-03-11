@@ -5,11 +5,24 @@
 <% @listings.each do |listing|  %>
   <h4><%= listing.name %></h4>
   <p><%= listing.description %></p>
+  <p><%= listing.user_id %></p>
 <% end %>
 
 <%= link_to "Add new service", new_listing_path, class: "btn btn-info", id: "button_create" %>
 
 <hr>
+
+<h2>Requests</h2>
+
+<% @requests.each do |request|  %>
+  <% if request.status == nil && request.listing.user_id == current_user.id %>
+    <p>Service: <%= request.listing.name %></p>
+    <p>Who's asking: <%= request.user.email %> </p>
+    <p>Their user id: <%= request.user.id %></p>
+
+
+  <% end %>
+<% end %>
 
 <h2>Upcoming Bookings</h2>
 
