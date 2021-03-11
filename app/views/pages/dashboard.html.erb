@@ -1,9 +1,29 @@
+<% if user_signed_in?  %>
+  <%= current_user.email %>
+<% end %> 
+
 <h1>Dashboard</h1>
-<h2>My listings</h2>
-<% @listings.each do |l|  %>
-<p><%= l.name %></p>
-<p><%= l.description %></p>
-<% end %>
+
+
+
+<section>
+  <header>
+    <h1 class="h3">My listings</h1>
+  </header>
+  <ol class="list-group">
+    <% @listings.each do |listing| %>
+      <li class="list-group-item">
+        <h3 class="text-dark">Listings title: <%= listing.name %></h3>
+        <h3 class="text-dark">Description: <%= listing.description %> </h3> 
+        <h4><%= link_to 'Show', listing_path(listing)%></h4>
+        <% if current_user == listing.user %>
+        <h4><%= link_to 'Edit', edit_listing_path(listing)%></h4>
+        <h4><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?'}%></h4>
+        <% end %>
+      </li>
+  <% end %>
+  </ol>
+</section>
 
 <hr>
 
