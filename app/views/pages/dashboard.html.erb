@@ -27,7 +27,7 @@
 
 <section>
   <header>
-<h1 class="h3">Requests</h1>
+<h1 class="h3">Service Requests</h1>
   </header>
 
 <ul class="list-group">
@@ -36,16 +36,18 @@
     <li>Service: <%= request.listing.name %></li>
     <li>Who's asking: <%= request.user.email %> </li>
     <li>Their user id: <%= request.user.id %></li>
+    <li>Status: <%= request.status %></li>
     <%# TODO: Implement actual working buttons %>
-    <%= link_to "Accept", root_path, class: "btn btn-success btn-sm", id: "button" %>
-    <%= link_to "Decline", root_path, class: "btn btn-danger btn-sm", id: "button" %>
+    <%= request.id %>
+    <%= link_to "Accept", booking_path(request.id), method: :patch, class: "btn btn-success btn-sm", id: "button" %>
+    <%= link_to "Decline", booking_path(request.id), method: :delete, class: "btn btn-danger btn-sm", id: "button" %>
   <% end %>
 <% end %>
 </ul>
 
 <section>
   <header>
-<h1 class="h3">Upcoming Bookings</h1>
+<h1 class="h3">Upcoming Service</h1>
   </header>
 
 <ul>
