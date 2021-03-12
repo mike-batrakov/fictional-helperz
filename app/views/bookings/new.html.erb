@@ -5,3 +5,16 @@
   <%= f.input :start_date, as: :date, html5: true%>
   <%= f.submit %>
 <% end %>
+
+  <p>Booking status :
+  <% if @booking.status %>
+  Approved!
+  <% else %>
+  Pending
+  <% end %>
+</div>
+
+<div>
+ <%= link_to "Back to your dashboard", :dashboard %>
+</div>
+

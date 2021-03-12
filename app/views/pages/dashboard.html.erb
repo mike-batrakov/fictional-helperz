@@ -1,8 +1,13 @@
+<% if user_signed_in?  %>
+  <%= current_user.email %>
+<% end %>
+
 <h1>Dashboard</h1>
 
 <section>
   <header>
     <h1 class="h3">My Services</h1>
+
   </header>
   <ol class="list-group">
     <% @listings.each do |listing| %>
