@@ -22,5 +22,18 @@ h2 {
 h1 {
   text-align: center;
   margin-bottom: 48px;
-  text-decoration: underline;
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url("https://mk0abtastybwtpirqi5t.kinstacdn.com/wp-content/uploads/landing-page-design.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
