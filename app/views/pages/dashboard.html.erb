@@ -34,13 +34,11 @@
 <% @requests.each do |request|  %>
   <% if request.status == nil && request.listing.user_id == current_user.id %>
     <li>Service: <%= request.listing.name %></li>
+    <li>When: <%= request.start_date.strftime("%A, %B #{request.start_date.day.ordinalize} %Y") %></li>
     <li>Who's asking: <%= request.user.email %> </li>
-    <li>Their user id: <%= request.user.id %></li>
-    <li>Status: <%= request.status %></li>
-    <%# TODO: Implement actual working buttons %>
-    <%= request.id %>
-    <%= link_to "Accept", booking_path(request.id), method: :patch, class: "btn btn-success btn-sm", id: "button" %>
+    <li><%= link_to "Accept", booking_path(request.id), method: :patch, class: "btn btn-success btn-sm", id: "button" %>
     <%= link_to "Decline", booking_path(request.id), method: :delete, class: "btn btn-danger btn-sm", id: "button" %>
+    </li>
   <% end %>
 <% end %>
 </ul>
@@ -54,8 +52,7 @@
 <% @bookings.each do |booking|  %>
   <% if booking.status && booking.start_date > Time.now %>
     <li>Service: <%= booking.listing.name %></li>
-    <% time = Time.new %>
-    <li>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </li>
+    <li>When: <%= booking.start_date.strftime("%A, %B #{booking.start_date.day.ordinalize} %Y") %> </li>
     <li>By: <%= booking.listing.user.email %></li><br>
   <% end %>
 <% end %>
@@ -71,8 +68,7 @@
 <% @bookings.each do |booking|  %>
   <% if booking.status == nil && booking.start_date > Time.now %>
     <li>Service: <%= booking.listing.name %></li>
-    <% time = Time.new %>
-    <li>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </li>
+    <li>When: <%= booking.start_date.strftime("%A, %B #{booking.start_date.day.ordinalize} %Y") %> </li>
     <li>Status: Pending</li>
     <li>By: <%= booking.listing.user.email %></li><br>
   <% end %>
@@ -89,8 +85,7 @@
 <% @bookings.each do |booking|  %>
   <% if booking.status && booking.start_date < Time.now %>
     <li>Service: <%= booking.listing.name %></li>
-    <% time = Time.new %>
-    <li>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </li>
+    <li>When: <%= booking.start_date.strftime("%A, %B #{booking.start_date.day.ordinalize} %Y") %> </li>
     <li>By: <%= booking.listing.user.email %></li><br>
   <% end %>
 <% end %>
