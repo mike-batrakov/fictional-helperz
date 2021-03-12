@@ -3,7 +3,6 @@
 <%= @booking.listing.name%>
 <br>
 <%= @booking.start_date %>
-
 <%= @booking.listing.status %>
 
 <p>Booking status :
@@ -14,4 +13,6 @@
   <% end %>
 </div> 
 
-<%= link_to 'Back', booking_path(@listing.booking) 
+<%= link_to 'Back', booking_path(@listing.booking) %>
+
+

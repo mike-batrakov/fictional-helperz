@@ -9,12 +9,16 @@
     </div>
     <img src="https://pbs.twimg.com/profile_images/1209872683791343621/jyNHTtaD_400x400.jpg" class="card-trip-user avatar-bordered" />
   </div>
+
   <div class="book-link">
         <!-- Change to Booking path once Booking controller is finished -->
       <%= link_to "Book!", new_listing_booking_path(@listing), :class => "btn btn-info" %>
   </div>
+
+ 
 </div>
 
 <div>
  <%= link_to "Back to your dashboard", :dashboard %>
+ <%= link_to "| Cancel", listings_path %>
 </div>

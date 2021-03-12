@@ -66,6 +66,8 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
+    calendar_helper (0.2.6)
+      open4
     capybara (3.35.3)
       addressable
       mini_mime (>= 0.1.3)
@@ -91,6 +93,8 @@ GEM
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.14.2)
+    flatpickr_rails (1.1.0)
+      railties (>= 3.0)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -119,6 +123,7 @@ GEM
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    open4 (1.3.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pry (0.13.1)
@@ -188,6 +193,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simple_calendar (2.4.1)
+      rails (>= 3.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -239,9 +246,11 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.4.2)
   byebug
+  calendar_helper (~> 0.2.6)
   capybara (>= 2.15)
   devise
   dotenv-rails
+  flatpickr_rails
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -253,6 +262,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.5)
   sass-rails (>= 6)
   selenium-webdriver
+  simple_calendar (~> 2.4.1)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -266,4 +276,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.1.4
+   2.2.11
