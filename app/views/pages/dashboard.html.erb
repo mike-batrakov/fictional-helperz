@@ -1,20 +1,31 @@
 <h1>Dashboard</h1>
 
-<h2>My Services</h2>
+<section>
+  <header>
+    <h1 class="h3">My Services</h1>
+  </header>
+  <ol class="list-group">
+    <% @listings.each do |listing| %>
+      <li class="list-group-item">
+        <h3 class="text-dark">Listings title: <%= listing.name %></h3>
+        <h3 class="text-dark">Description: <%= listing.description %> </h3>
+        <h4><%= link_to 'Show', listing_path(listing)%></h4>
+        <% if current_user == listing.user %>
+        <h4><%= link_to 'Edit', edit_listing_path(listing)%></h4>
+        <h4><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?'}%></h4>
+        <% end %>
+      </li>
+  <% end %>
+      <%= link_to "New service", new_listing_path, class: "btn btn-info btn-sm", id: "button" %>
+  </ol>
+</section>
 
-<ol>
-<% @listings.each do |listing|  %>
-  <li><h4><%= listing.name %></h4>
-  <p><%= listing.description %></p></li>
-<% end %>
-</ol>
+<section>
+  <header>
+<h1 class="h3">Requests</h1>
+  </header>
 
-<%= link_to "New service", new_listing_path, class: "btn btn-info btn-sm", id: "button" %>
-<p>
-
-<h2>Requests</h2>
-
-<ul>
+<ul class="list-group">
 <% @requests.each do |request|  %>
   <% if request.status == nil && request.listing.user_id == current_user.id %>
     <li>Service: <%= request.listing.name %></li>
@@ -27,7 +38,10 @@
 <% end %>
 </ul>
 
-<h2>Upcoming Bookings</h2>
+<section>
+  <header>
+<h1 class="h3">Upcoming Bookings</h1>
+  </header>
 
 <ul>
 <% @bookings.each do |booking|  %>
@@ -39,8 +53,12 @@
   <% end %>
 <% end %>
 </ul>
+</section>
 
-<h2>Pending Bookings</h2>
+<section>
+  <header>
+<h1 class="h3">Pending Bookings</h1>
+  </header>
 
 <ul>
 <% @bookings.each do |booking|  %>
@@ -53,8 +71,12 @@
   <% end %>
 <% end %>
 </ul>
+</section>
 
-<h2>Past Bookings</h2>
+<section>
+  <header>
+<h1 class="h3">Past Bookings</h1>
+  </header>
 
 <ul>
 <% @bookings.each do |booking|  %>
@@ -66,3 +88,4 @@
   <% end %>
 <% end %>
 </ul>
+</section>
