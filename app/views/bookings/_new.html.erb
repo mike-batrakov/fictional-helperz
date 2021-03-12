@@ -1,16 +1,12 @@
 <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" width:200/>
   <div class="card-product-infos">
     <h2><%= @listing.name %></h2>
     <p><%= @listing.description %></p>
   </div>
-
-
 </div>
 
 
 <%= simple_form_for [@listing, @booking] do |f| %>
-<%= f.input :start_date %>
-    
+<%= f.input :start_date %>  
 <%= f.submit %>
 <% end %> 

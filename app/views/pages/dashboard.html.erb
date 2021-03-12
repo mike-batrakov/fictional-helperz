@@ -10,6 +10,17 @@
 
 <h2>My bookings</h2>
 <% @bookings.each do |b|  %>
-<p><%= b.listing_id %></p>
+<%# <p><%= b.listing_id %></p> 
+<%= b.listing.name%>
+<%= b.start_date %>
+<%= b.listing.status %>
+
+<p>Booking status :
+  <% if b.status %>
+  Approved!
+  <% else %>
+  Pending
+  <% end %>
+</div> 
 
 <% end %>
