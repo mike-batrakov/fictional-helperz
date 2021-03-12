@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  <div class="testing">
     <%= render 'shared/navbar' %>
     <%# <p class="notice"><%= notice </p> %>
     <%# <p class='alert'><%= alert </p> %>
@@ -24,12 +25,12 @@
       <aside class="alert alert-danger">
         <%= alert %>
       </aside>
-    <% end %>        
-    
+    <% end %>
     <%= yield %>
+    </div>
   </body>
-    <%= render 'shared/footer' %>
+    
   <footer>
-  
+    <%= render 'shared/footer' %>
   </footer>
 </html>

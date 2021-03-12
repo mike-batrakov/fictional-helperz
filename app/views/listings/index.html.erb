@@ -45,43 +45,20 @@
 </header>
   <!-- Jumbotron -->
 
-<div class="container-card">
-  <% @listings.each do |listing| %>
-  <div class="card bg-light mb-3" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= listing.description %></p>
-    </div>
-        <div class="btn-preview">
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
-    </div>
-  </div>
-  <% end %>
-</div>
-
-<div class="container-card">
-  <% @listings.each do |listing| %>
-  <div class="card bg-light mb-3" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= listing.description %></p>
-    </div>
-            <div class="btn-preview">
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
-    </div>
-  </div>
-  <% end %>
-</div>
-
-<div class="container-card">
-  <% @listings.each do |listing| %>
-  <div class="card bg-light mb-3" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= listing.description %></p>
-    </div>
-            <div class="btn-preview">
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
+<div class="container h-100">
+<% @listings.each do |listing| %>
+  <div class="row align-middle">
+    <div class="col-md-6 col-lg-4 column">
+      <div class="card gr-1">
+        <div class="txt">
+          <h1><%= listing.name %></h1>
+          <p><%= listing.description %></p>
+        </div>
+        <%= link_to 'Preview', listing_path(listing) %>
+        <div class="ico-card">
+        <i class="fa fa-rebel"></i>
+      </div>
+      </div>
     </div>
   </div>
   <% end %>

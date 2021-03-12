@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: %i[show edit update destroy]
+  before_action :set_booking, only: %i[show edit update destroy]
 
   def show
   end
@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
   private
 
   def set_booking
-    @booking = Bookings.find(params[:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
