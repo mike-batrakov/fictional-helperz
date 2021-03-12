@@ -1,9 +1,9 @@
 <h2>Book my SuperHelperz</h2>
 
 <%= simple_form_for [ @listing, @booking ] do |f| %>
-<%= f.association :listing, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
-<%= f.input :start_date, as: :date, html5: true%>
-<%= f.submit %>
+  <%# f.association :listing, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+  <%= f.input :start_date, as: :date, html5: true%>
+  <%= f.submit %>
 <% end %>
 
   <p>Booking status :
@@ -12,8 +12,9 @@
   <% else %>
   Pending
   <% end %>
-</div> 
+</div>
 
 <div>
  <%= link_to "Back to your dashboard", :dashboard %>
 </div>
+

@@ -1,20 +1,19 @@
 <% if user_signed_in?  %>
   <%= current_user.email %>
-<% end %> 
+<% end %>
 
 <h1>Dashboard</h1>
 
-
-
 <section>
   <header>
-    <h1 class="h3">My listings</h1>
+    <h1 class="h3">My Services</h1>
+
   </header>
   <ol class="list-group">
     <% @listings.each do |listing| %>
       <li class="list-group-item">
         <h3 class="text-dark">Listings title: <%= listing.name %></h3>
-        <h3 class="text-dark">Description: <%= listing.description %> </h3> 
+        <h3 class="text-dark">Description: <%= listing.description %> </h3>
         <h4><%= link_to 'Show', listing_path(listing)%></h4>
         <% if current_user == listing.user %>
         <h4><%= link_to 'Edit', edit_listing_path(listing)%></h4>
@@ -22,14 +21,76 @@
         <% end %>
       </li>
   <% end %>
+      <%= link_to "New service", new_listing_path, class: "btn btn-info btn-sm", id: "button" %>
   </ol>
 </section>
 
-<hr>
+<section>
+  <header>
+<h1 class="h3">Requests</h1>
+  </header>
 
-
-<h2>My bookings</h2>
-<% @bookings.each do |b|  %>
-<p><%= b.listing_id %></p>
-
+<ul class="list-group">
+<% @requests.each do |request|  %>
+  <% if request.status == nil && request.listing.user_id == current_user.id %>
+    <li>Service: <%= request.listing.name %></li>
+    <li>Who's asking: <%= request.user.email %> </li>
+    <li>Their user id: <%= request.user.id %></li>
+    <%# TODO: Implement actual working buttons %>
+    <%= link_to "Accept", root_path, class: "btn btn-success btn-sm", id: "button" %>
+    <%= link_to "Decline", root_path, class: "btn btn-danger btn-sm", id: "button" %>
+  <% end %>
 <% end %>
+</ul>
+
+<section>
+  <header>
+<h1 class="h3">Upcoming Bookings</h1>
+  </header>
+
+<ul>
+<% @bookings.each do |booking|  %>
+  <% if booking.status && booking.start_date > Time.now %>
+    <li>Service: <%= booking.listing.name %></li>
+    <% time = Time.new %>
+    <li>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </li>
+    <li>By: <%= booking.listing.user.email %></li><br>
+  <% end %>
+<% end %>
+</ul>
+</section>
+
+<section>
+  <header>
+<h1 class="h3">Pending Bookings</h1>
+  </header>
+
+<ul>
+<% @bookings.each do |booking|  %>
+  <% if booking.status == nil && booking.start_date > Time.now %>
+    <li>Service: <%= booking.listing.name %></li>
+    <% time = Time.new %>
+    <li>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </li>
+    <li>Status: Pending</li>
+    <li>By: <%= booking.listing.user.email %></li><br>
+  <% end %>
+<% end %>
+</ul>
+</section>
+
+<section>
+  <header>
+<h1 class="h3">Past Bookings</h1>
+  </header>
+
+<ul>
+<% @bookings.each do |booking|  %>
+  <% if booking.status && booking.start_date < Time.now %>
+    <li>Service: <%= booking.listing.name %></li>
+    <% time = Time.new %>
+    <li>When: <%= booking.start_date.strftime("%A, %B #{time.day.ordinalize} %Y") %> </li>
+    <li>By: <%= booking.listing.user.email %></li><br>
+  <% end %>
+<% end %>
+</ul>
+</section>
