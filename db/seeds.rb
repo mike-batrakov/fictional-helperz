@@ -6,13 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://colorlib.com/wp/wp-content/uploads/sites/2/card-by-Akshay.jpg')
 
 
 puts "Cleaning DB ..."
-User.destroy_all
-Listing.destroy_all
 Booking.destroy_all
+Listing.destroy_all
+User.destroy_all
+
+
 
 puts "Creating users ..."
 
@@ -52,7 +54,8 @@ mary_listing = Listing.create!(
   price: 100,
   user_id: mary.id
 )
-mary_listing.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+mary_listing.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 
 puts 'Listing for Mary was created'
 

@@ -83,11 +83,11 @@ p {
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
 
-// $gr-1: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
+$gr-1: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
 
-// .gr-1 {
-//   background: $gr-1;
-// }
+.gr-1 {
+  background: $gr-1;
+}
 
 * {
   transition: 0.5s;
