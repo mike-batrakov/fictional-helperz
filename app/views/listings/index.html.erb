@@ -31,7 +31,7 @@
 
   <!-- Jumbotron -->
 <header class="masthead">
-  <div class="container h-100">
+  <div class="container2 h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
         <%# <h1 class="font-weight-light">Fictional Helperz</h1>
@@ -44,20 +44,24 @@
   </div>
 </header>
   <!-- Jumbotron -->
+
+
+
+<div class="container-old h-100">
 <% @listings.each do |listing| %>
-<div class="container h-100">
-  <div class=" column">
+    <% if listing.photo.attached? %>
+    <div class="column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path listing.photo.key, crop: :fill %>')">
+      <% else %>
+      <div class="column">
+      <% end %>
       <div class="card gr-1">
         <div class="txt">
           <h1><%= listing.name %></h1>
-          <p><%= listing.description %></p>
+          <p><%= listing.price %></p>
         </div>
         <%= link_to 'Preview', listing_path(listing) %>
-        <div class="ico-card">
-          <i class="fa fa-qq" aria-hidden="true"></i>
-        </div>
       </div>
     </div>
-  </div>
-  <% end %>
+    <% end %>
 </div>
+
