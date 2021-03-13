@@ -46,6 +46,7 @@ puts 'Creating listings ...'
 mary_listing = Listing.create!(
   name: "Babysitting with Spidey",
   description: "When I'm not fightin' crime, or with sweet sweet Mary-Jane, I can essentially offer my babysitting services.",
+  price: 100,
   user_id: mary.id
 )
 puts 'Listing for Mary was created'
@@ -53,6 +54,7 @@ puts 'Listing for Mary was created'
 tep_listing = Listing.create!(
   name: "Bathuman protection",
   description: "When I'm not preoccupied with the Bat-family, I can offer my services as a bouncer. I have experience.",
+  price: 100,
   user_id: tep.id
 )
 puts 'Listing for Tep was created'
@@ -60,6 +62,7 @@ puts 'Listing for Tep was created'
 nazim_listing = Listing.create!(
   name: "Bugs Bunny Cooking Skills",
   description: "M'yeh.. Wassup, doc?",
+  price: 100,
   user_id: nazim.id
 )
 puts 'Listing for Nazim was created'
