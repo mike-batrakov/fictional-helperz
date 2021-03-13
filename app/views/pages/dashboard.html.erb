@@ -15,20 +15,21 @@
     <div class="row justify-content-md-center">
       <div class="notification">
         <div class="notification-content">
-          <h1>My Services</h1>
+          <h1><strong>My Services</strong></h1>
           <ol>
             <% @listings.each do |listing| %>
               <li>
-                <p>Listings title: <%= listing.name %></p>
-                <p>Description: <%= listing.description %> </p>
+                <h3><strong><%= listing.name.capitalize %></strong></h3>
+                <p><%= listing.description %> </p>
               </li>
 
                 <div class="notification-actions">
                   <% if current_user == listing.user %>
-                    <%= link_to 'Edit', edit_listing_path(listing)%>
-                    <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?'}%>
+                    <%= link_to 'Edit', edit_listing_path(listing), class: "dashboard-link" %>
+                    <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?'}, class: "dashboard-link" %>
                   <% end %>
                 </div>
+                <br>
             <% end %>
           </ol>
           <%= link_to "New service", new_listing_path, class: "btn btn-info btn-sm", id: "button" %>
@@ -41,39 +42,41 @@
 
     <div class="row justify-content-md-center">
       <div class="notification">
+            <div class="notification-content">
         <h1>Service Request</h1>
         <% @requests.each do |request|  %>
           <% if request.status == nil && request.listing.user_id == current_user.id %>
 
-            <div class="notification-content">
 
-                    <li>Service: <%= request.listing.name %></li>
+                    <li><strong><%= request.listing.name.capitalize %></strong></li>
                     <li>When: <%= request.start_date.strftime("%A, %B #{request.start_date.day.ordinalize} %Y") %></li>
                     <li>Who's asking: <%= request.user.email %> </li>
                     <li><%= link_to "Accept", booking_path(request.id), method: :patch, class: "btn btn-success btn-sm", id: "button" %>
                     <%= link_to "Decline", booking_path(request.id), method: :delete, class: "btn btn-danger btn-sm", id: "button" %>
-                    </li>
-            </div>
-        </div>
+                    </li><br>
           <% end %>
         <% end %>
+            </div>
+        </div>
     </div>
 
     <div class="row justify-content-md-center">
       <div class="notification">
+            <div class="notification-content">
         <h1>Upcoming Services</h1>
         <% @requests.each do |request|  %>
           <% if request.status && request.listing.user_id == current_user.id %>
 
-            <div class="notification-content">
               <li>Service: <%= request.listing.name %></li>
               <li>When: <%= request.start_date.strftime("%A, %B #{request.start_date.day.ordinalize} %Y") %></li>
               <li>Who's asking: <%= request.user.email %> </li><br>
-            </div>
-        </div>
           <% end %>
         <% end %>
+            </div>
+        </div>
     </div>
+
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
 
     <div class="row justify-content-md-center">
       <div class="notification">
