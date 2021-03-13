@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :listings
   has_many :bookings
 
+  validates :username, uniqueness: true, presence: true
 end

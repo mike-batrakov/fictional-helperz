@@ -14,24 +14,28 @@ Booking.destroy_all
 puts "Creating users ..."
 
 mary = User.create!(
+  username: "mary",
   email: "mary@test.com",
   password: "123456"
 )
 puts 'User for Mary was created'
 
 tep = User.create!(
+  username: "tep",
   email: "tep@test.com",
   password: "123456"
 )
 puts 'User for Tep was created'
 
 nazim = User.create!(
+  username: "nazim",
   email: "nazim@test.com",
   password: "123456"
 )
 puts 'User for Nazim was created'
 
 michael = User.create!(
+    username: "michael",
     email: "michael@test.com",
     password: "123456"
   )
@@ -74,7 +78,7 @@ booking_one = Booking.create!(
   listing_id: tep_listing.id,
   status: true,
   start_date: "May 1st 2021",
-  end_date: "January 31st 2021"
+  end_date: "January 31st 2022"
 )
 
 booking_two = Booking.create!(
@@ -82,7 +86,7 @@ booking_two = Booking.create!(
   listing_id: mary_listing.id,
   status: true,
   start_date: "May 1st 2021",
-  end_date: "January 31st 2021"
+  end_date: "January 31st 2022"
 )
 
 booking_three = Booking.create!(
@@ -90,7 +94,7 @@ booking_three = Booking.create!(
   listing_id: michael_listing.id,
   status: true,
   start_date: "May 1st 2021",
-  end_date: "January 31st 2021"
+  end_date: "January 31st 2022"
 )
 
 booking_four = Booking.create!(
@@ -98,7 +102,7 @@ booking_four = Booking.create!(
   listing_id: nazim_listing.id,
   status: true,
   start_date: "May 1st 2021",
-  end_date: "January 31st 2021"
+  end_date: "January 31st 2022"
 )
 
 puts 'Seeds completed'
