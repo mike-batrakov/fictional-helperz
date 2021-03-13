@@ -12,10 +12,25 @@
   </head>
 
   <body>
+  <div class="testing">
     <%= render 'shared/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class='alert'><%= alert %></p>
-    
+    <%# <p class="notice"><%= notice </p> %>
+    <%# <p class='alert'><%= alert </p> %>
+    <% if notice.present? %>
+      <aside class="alert alert-info">
+        <%= notice %>
+      </aside>
+    <% end %>
+    <% if alert.present? %>
+      <aside class="alert alert-danger">
+        <%= alert %>
+      </aside>
+    <% end %>
     <%= yield %>
+    </div>
   </body>
+    
+  <footer>
+    <%= render 'shared/footer' %>
+  </footer>
 </html>

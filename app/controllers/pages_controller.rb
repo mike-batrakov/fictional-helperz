@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @listings = current_user.listings
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(start_date: :desc)
+    @requests = Booking.all
   end
 end

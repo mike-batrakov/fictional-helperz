@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: %i[show edit update destroy]
+  before_action :set_booking, only: %i[edit update destroy]
 
   def new
     @listing = Listing.find(params[:listing_id])
@@ -7,20 +7,17 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def edit
-  end
-
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @listing = Listing.find(params[:listing_id])
     @booking.listing = @listing
     @booking.user = current_user
-    @booking.save
-    authorize @booking
-    redirect_to dashboard_path
-  end
-
-  def show
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -37,11 +34,11 @@ class BookingsController < ApplicationController
   private
 
   def set_booking
-    @booking = Bookings.find(params[:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:status, :start_date, :end_date)
   end
 end
