@@ -12,7 +12,9 @@
 
   <div class="book-link">
         <!-- Change to Booking path once Booking controller is finished -->
-      <%= link_to "Book!", new_listing_booking_path(@listing), :class => "btn btn-info" %>
+      <%# link_to "Book!", new_listing_booking_path(@listing), :class => "btn btn-info" %>
+      <h2>Book my SuperHelperz</h2>
+      <%= render "bookings/new" %>
   </div>
 
  

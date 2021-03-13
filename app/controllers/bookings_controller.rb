@@ -1,12 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[edit update destroy accept decline]
 
-  def new
-    @listing = Listing.find(params[:listing_id])
-    @booking = Booking.new
-    authorize @booking
-  end
-
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
