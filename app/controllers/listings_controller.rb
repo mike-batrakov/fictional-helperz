@@ -50,6 +50,6 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:name, :description) # did not add :photo, :price: status. At least not yet.
+    params.require(:listing).permit(:name, :description, :photo, :price)
   end
 end
