@@ -1,12 +1,19 @@
 .wrapper {
     margin-top: 12px;
     border: 1px solid transparent;
+    background-color: white;
+    border-radius: 8px;
 }
 
 h2 {
     text-align: center;
 }
 
-h2, p {
-    color: $info
+h2, p, .form {
+    color: purple;
 }
+
+.form-group {
+    padding-left: 0;
+}
+

@@ -1,10 +1,9 @@
 <div class="container">
   <div class="wrapper">
-      <%# <div class="row">
-        <div class="col-sm-4">
-          <%= image_tag "hannah-busing.jpg", alttext: "super heros", width: 350, height: 450%>
-        </div> %>
-
+      <div class="row">
+        <div class="col-sm-4" id="img">
+          <%= image_tag "superHelperz.jpg", alttext: "super heros", width: 330 %>
+        </div>
         <div class="form-group col-sm-8">
           <h2>Pick your Date!</h2>
           <p><%= @listing.name %></p>
@@ -15,16 +14,19 @@
             <% else %>
             Pending
             <% end %>
-            <%= simple_form_for [@listing, @booking] do |f| %>
-            <%= f.input :start_date, as: :date, html5: true %> 
-            <%= f.input :end_date, as: :date, html5: true %> 
-            <%= f.submit %>
-          <% end %> 
+            <div class="form">
+              <%= simple_form_for [@listing, @booking] do |f| %>
+              <%= f.input :start_date, as: :date, html5: true %> 
+              <%= f.input :end_date, as: :date, html5: true %> 
+              <%= f.submit %>
+              <% end %> 
+                <%= link_to "Back", listings_path %>
+            </div>
+            <div>
+            
+            </div>
         </div>
       </div>  
-      <div>
-        <%= link_to "Back", listings_path %>
-      </div>
     </div>
 </div>
 
