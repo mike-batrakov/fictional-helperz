@@ -1,5 +1,6 @@
 .wrapper {
-    margin-top: 12px;
+    margin-top: 48px;
+    margin-bottom: 12px;
     border: 1px solid transparent;
     background-color: white;
     border-radius: 8px;
@@ -19,5 +20,9 @@ p, .form {
 
 .form-group {
     padding-left: 0;
+}
+
+.form {
+    padding: 12px 0;
 }
 
