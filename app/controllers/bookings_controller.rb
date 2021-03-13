@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[edit update destroy]
+  before_action :set_booking, only: %i[edit update destroy accept decline]
 
   def new
     @listing = Listing.find(params[:listing_id])
@@ -20,6 +20,9 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     @booking.status = params[:status]
     @booking.save!
@@ -27,6 +30,20 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to dashboard_path
+  end
+
+  def accept
+    @booking.status = true
+    if @booking.save!
+      redirect_to dashboard_path
+    else
+      redirect_to :home
+    end
+  end
+
+  def decline
     @booking.destroy
     redirect_to dashboard_path
   end
