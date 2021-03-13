@@ -1,9 +1,8 @@
 <h2>Confirmation</h2>
 
 <%= @booking.listing.name%>
-<br>
 <%= @booking.start_date %>
-
+<<<<<<< HEAD
 <%= @booking.listing.status %>
 
 <p>Booking status :
@@ -15,3 +14,9 @@
 </div> 
 
 <%= link_to 'Back', booking_path(booking) %>
+=======
+
+<p><%= @booking.status %></p>
+
+<%= link_to "back", dashboard_path %>
+>>>>>>> master
