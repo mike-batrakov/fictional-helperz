@@ -1,5 +1,5 @@
 <%= simple_form_for [@user, @listing] do |l| %>
   <%= l.input :name %>
   <%= l.input :description %>
-  <%= l.submit %>
+  <%= l.submit 'Submit', :class => 'btn purple' %>
 <% end %>

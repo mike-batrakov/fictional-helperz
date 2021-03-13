@@ -41,6 +41,15 @@ h2 {
   background-color: #b573d0;
 }
 
+.red {
+  background-color: #e74c3c;
+  box-shadow: 0px 5px 0px 0px #ce3323;
+}
+
+.red:hover {
+  background-color: #ff6656;
+}
+
 .btn-jumbotron {
   width: 40%;
   margin-left: 30%;
@@ -122,7 +131,7 @@ $gr-1: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
   border-radius: 0;
   color: rgba(0, 0, 0, 1);
   letter-spacing: 0.05rem;
-  font-family: "Oswald", sans-serif;
+  font-family: "Open Sans", sans-serif;
   box-shadow: 0 0 21px rgba(0, 0, 0, 0.27);
   .txt {
     margin-left: -3rem;
