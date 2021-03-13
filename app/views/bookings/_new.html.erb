@@ -1,14 +1,14 @@
 <div class="container">
   <div class="wrapper">
-      <div class="row">
+      <%# <div class="row">
         <div class="col-sm-4">
           <%= image_tag "hannah-busing.jpg", alttext: "super heros", width: 350, height: 450%>
-        </div>
+        </div> %>
 
         <div class="form-group col-sm-8">
           <h2>Pick your Date!</h2>
           <p><%= @listing.name %></p>
-          <p><%= @listing.description %></p>
+          <p> <%= @listing.description %></p>
           <p>Booking status :
             <% if @booking.status %>
             Approved!
