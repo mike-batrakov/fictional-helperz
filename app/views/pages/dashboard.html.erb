@@ -41,19 +41,39 @@
   <% end %>
 <% end %>
 </ul>
+</section>
 
 <section>
   <header>
-<h1 class="h3">Upcoming Service</h1>
+<h1 class="h3">Upcoming Services</h1>
+  </header>
+
+<ul class="list-group">
+<% @requests.each do |request|  %>
+  <% if request.status && request.listing.user_id == current_user.id %>
+    <li>Service: <%= request.listing.name %></li>
+    <li>When: <%= request.start_date.strftime("%A, %B #{request.start_date.day.ordinalize} %Y") %></li>
+    <li>Who's asking: <%= request.user.email %> </li>
+    <br>
+  <% end %>
+<% end %>
+</ul>
+</section>
+
+<section>
+  <header>
+<h1 class="h3">Accepted Bookings</h1>
   </header>
 
 <ul>
 <% @bookings.each do |booking|  %>
   <% if booking.status && booking.start_date > Time.now %>
     <li>Service: <%= booking.listing.name %></li>
+    <li>Service: <%= booking.listing.id %></li>
     <li>When: <%= booking.start_date.strftime("%A, %B #{booking.start_date.day.ordinalize} %Y") %> </li>
     <li>By: <%= booking.listing.user.email %></li><br>
   <% end %>
+<% end %>
   </ol>
 </section>
 
@@ -70,6 +90,7 @@
     <li>Status: Pending</li>
     <li>By: <%= booking.listing.user.email %></li><br>
   <% end %>
+<% end %>
   </ol>
 </section>
 
