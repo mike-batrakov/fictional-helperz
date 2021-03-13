@@ -13,8 +13,11 @@ puts "Cleaning DB ..."
 Booking.destroy_all
 Listing.destroy_all
 User.destroy_all
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 
 puts "Creating users ..."
 
