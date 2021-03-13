@@ -14,24 +14,28 @@ Booking.destroy_all
 puts "Creating users ..."
 
 mary = User.create!(
+  username: "mary",
   email: "mary@test.com",
   password: "123456"
 )
 puts 'User for Mary was created'
 
 tep = User.create!(
+  username: "tep",
   email: "tep@test.com",
   password: "123456"
 )
 puts 'User for Tep was created'
 
 nazim = User.create!(
+  username: "nazim",
   email: "nazim@test.com",
   password: "123456"
 )
 puts 'User for Nazim was created'
 
 michael = User.create!(
+    username: "michael",
     email: "michael@test.com",
     password: "123456"
   )
