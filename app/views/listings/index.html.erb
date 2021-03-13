@@ -57,9 +57,11 @@
         <% end %>
         <div class="txt">
           <h1><%= listing.name %></h1>
-          <p><%= listing.price %></p>
         </div>
         <%= link_to 'Preview', listing_path(listing) %>
+        <div class="ico-card">
+          <i class="fa fa-qq" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
     <% end %>

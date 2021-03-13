@@ -6,7 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://cdn.mos.cms.futurecdn.net/jkL25z4c7croemhkBRG8Pb.jpg')
+file1 = URI.open('https://c4.wallpaperflare.com/wallpaper/61/696/907/south-park-eric-cartman-kyle-broflovski-wallpaper-preview.jpg')
+file2 = URI.open('https://i.pinimg.com/originals/ab/04/44/ab0444a0c3307f864e89c58f712c7110.jpg')
+file3 = URI.open('https://images.hdqwalls.com/download/batman-4k2020-9y-1680x1050.jpg')
+file4 = URI.open('https://media.distractify.com/brand-img/VxbP7JofG/480x252/ehul9_duyaab1na-1614901892050.jpg')
+file5 = URI.open('https://i.kym-cdn.com/entries/icons/original/000/031/081/coomer.png')
+file6 = URI.open('https://i.pinimg.com/originals/be/10/ca/be10cae71fd1d958ca57b0af212c5160.jpg')
+file7 = URI.open('https://free4kwallpapers.com/uploads/originals/2015/12/19/voldemort-in-hp7-part-2-wallpaper.jpg')
 
 
 puts "Cleaning DB ..."
@@ -52,7 +59,8 @@ mary_listing = Listing.create!(
   price: 100,
   user_id: mary.id
 )
-mary_listing.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+mary_listing.photo.attach(io: file, filename: 'nes.png', content_type: 'image/jpg')
 
 puts 'Listing for Mary was created'
 
@@ -62,6 +70,8 @@ michael_listing = Listing.create!(
   user_id: michael.id
 )
 
+michael_listing.photo.attach(io: file1, filename: 'nes1.png', content_type: 'image/jpg')
+
 puts 'Listing for Michael 2 was created'
 
 nazim_listing = Listing.create!(
@@ -70,6 +80,8 @@ nazim_listing = Listing.create!(
   user_id: nazim.id
 )
 
+nazim_listing.photo.attach(io: file2, filename: 'nes2.png', content_type: 'image/jpg')
+
 puts 'Listing for Nazim 1 was created'
 
 tep_listing = Listing.create!(
@@ -77,6 +89,8 @@ tep_listing = Listing.create!(
   description: "When I'm not preoccupied with the Bat-family's drama, I can offer my services as a bouncer. I have experience.",
   user_id: tep.id
 )
+
+tep_listing.photo.attach(io: file3, filename: 'nes3.png', content_type: 'image/jpg')
 
 puts 'Listing for Tep was created'
 
@@ -87,6 +101,8 @@ nazim_listing = Listing.create!(
   user_id: nazim.id
 )
 
+nazim_listing.photo.attach(io: file4, filename: 'nes4.png', content_type: 'image/jpg')
+
 puts 'Listing for Nazim 2 was created'
 
 michael_listing = Listing.create!(
@@ -94,6 +110,8 @@ michael_listing = Listing.create!(
   description: "I am alone. You're alone. Let's both be alone, together and share depressive thoughts.",
   user_id: michael.id
 )
+
+michael_listing.photo.attach(io: file5, filename: 'nes5.png', content_type: 'image/jpg')
 
 puts 'Listing for Mary 2 was created'
 
@@ -103,6 +121,8 @@ mary_listing = Listing.create!(
   user_id: mary.id
 )
 
+mary_listing.photo.attach(io: file6, filename: 'nes6.png', content_type: 'image/jpg')
+
 puts 'Listing for Mary 2 was created'
 
 tep_listing = Listing.create!(
@@ -110,6 +130,8 @@ tep_listing = Listing.create!(
   description: "H....A....R....R....Y POT-TAH... I'll chill wid ur kids n stuf hehehe",
   user_id: tep.id
 )
+
+tep_listing.photo.attach(io: file7, filename: 'nes7.png', content_type: 'image/jpg')
 
 puts 'Listing for Tep2 was created'
 
