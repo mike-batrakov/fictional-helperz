@@ -10,9 +10,9 @@ file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419
 
 
 puts "Cleaning DB ..."
-User.destroy_all
-Listing.destroy_all
 Booking.destroy_all
+Listing.destroy_all
+User.destroy_all
 
 puts "Creating users ..."
 
