@@ -77,6 +77,8 @@ p {
   background-repeat: no-repeat;
 }
 
+// CARDS START
+
 @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,700");
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
@@ -137,6 +139,7 @@ $gr-1: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
     margin-left: -3rem;
     z-index: 1;
     h1 {
+      margin-left: 45px;
       font-size: 1.5rem;
       font-weight: 300;
       text-transform: uppercase;
@@ -152,9 +155,9 @@ $gr-1: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
   }
   a {
     z-index: 3;
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: rgba(0, 0, 0, 1);
-    margin-left: 1rem;
+    margin-left: 7rem;
     position: relative;
     bottom: -0.5rem;
     text-transform: uppercase;
@@ -191,8 +194,12 @@ $gr-1: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
   }
 }
 
-.container2 {
+// CARDS END
+
+.container-old {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 64px;
+  grid-gap: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
