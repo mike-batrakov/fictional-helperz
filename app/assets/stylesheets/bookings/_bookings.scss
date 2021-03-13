@@ -7,10 +7,14 @@
 
 h2 {
     text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: rebeccapurple;
 }
 
-h2, p, .form {
-    color: purple;
+p, .form {
+    color: black;
+    font-weight: lighter;
 }
 
 .form-group {
