@@ -1,42 +1,64 @@
-<h1>Services</h1>
 
-<div class="container-card">
-  <% @listings.each do |listing| %>
-  <div class="card bg-light mb-3" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= listing.description %></p>
-    </div>
-        <div class="btn-preview">
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
+  <!-- Background image -->
+  <%# <div
+    class="p-5 text-center bg-image"
+    style="
+      background-image: url('https://miro.medium.com/max/2560/1*fenBrqNDWKFrM4jPPNJ5Ng.png');
+      height: 400px;
+    "
+  >
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">Fictional Helperz</h1>
+          <a class="btn btn-outline-light btn-lg" href="#!" role="button"
+            >Book a listing</a
+          >
+        </div>
+      </div>
     </div>
   </div>
-  <% end %>
-</div>
+  <!-- Background image -->
+</header> %>
 
-<div class="container-card">
-  <% @listings.each do |listing| %>
-  <div class="card bg-light mb-3" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= listing.description %></p>
-    </div>
-            <div class="btn-preview">
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
+<%# <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://miro.medium.com/max/2560/1*fenBrqNDWKFrM4jPPNJ5Ng.png" alt="First slide">
     </div>
   </div>
-  <% end %>
-</div>
+</div> %>
 
-<div class="container-card">
-  <% @listings.each do |listing| %>
-  <div class="card bg-light mb-3" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= listing.name %></h5>
-      <p class="card-text"><%= listing.description %></p>
+  <!-- Jumbotron -->
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light">Fictional Helperz</h1>
+        <p class="lead">Book your services, today!</p>
+        <%# <div class="btn-jumbotron text-center">
+          <%= link_to 'Create', new_listing_path, :class=>"btn btn-info" %>
+        </div> %>
+      </div>
     </div>
-            <div class="btn-preview">
-      <%= link_to 'Preview', listing_path(listing), :class=>"btn btn-info" %>
+  </div>
+</header>
+  <!-- Jumbotron -->
+
+<div class="container h-100">
+<% @listings.each do |listing| %>
+  <div class="row align-middle">
+    <div class="col-md-6 col-lg-4 column">
+      <div class="card gr-1">
+        <div class="txt">
+          <h1><%= listing.name %></h1>
+          <p><%= listing.description %></p>
+        </div>
+        <%= link_to 'Preview', listing_path(listing) %>
+        <div class="ico-card">
+        <i class="fa fa-rebel"></i>
+      </div>
+      </div>
     </div>
   </div>
   <% end %>
