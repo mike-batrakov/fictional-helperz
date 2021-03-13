@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @listing = Listing.find(params[:listing_id])
     @booking.listing = @listing
+    @booking.status = nil
     @booking.user = current_user
     if @booking.save
       redirect_to dashboard_path
