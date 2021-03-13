@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create]
   end
 
-  resources :bookings, only: [ :show, :edit, :update, :destroy]
+  resources :bookings, only: [ :show, :destroy]
+
+  patch 'bookings/:id', to: 'bookings#accept'
+  delete 'bookings/:id', to: 'bookings#decline'
 end
