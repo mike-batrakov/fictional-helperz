@@ -73,28 +73,32 @@ booking_one = Booking.create!(
   user_id: mary.id,
   listing_id: tep_listing.id,
   status: true,
-  start_date: "January 31st"
+  start_date: "May 1st 2021",
+  end_date: "January 31st 2021"
 )
 
 booking_two = Booking.create!(
   user_id: tep.id,
   listing_id: mary_listing.id,
   status: true,
-  start_date: "January 31st"
+  start_date: "May 1st 2021",
+  end_date: "January 31st 2021"
 )
 
 booking_three = Booking.create!(
   user_id: nazim.id,
   listing_id: michael_listing.id,
   status: true,
-  start_date: "January 31st"
+  start_date: "May 1st 2021",
+  end_date: "January 31st 2021"
 )
 
 booking_four = Booking.create!(
   user_id: michael.id,
   listing_id: nazim_listing.id,
   status: true,
-  start_date: "January 31st"
+  start_date: "May 1st 2021",
+  end_date: "January 31st 2021"
 )
 
 puts 'Seeds completed'
