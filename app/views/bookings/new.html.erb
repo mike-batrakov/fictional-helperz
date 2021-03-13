@@ -1,21 +1,4 @@
 <h2>Book my SuperHelperz</h2>
+  <%= render "new" %>
 
-<%= simple_form_for [ @listing, @booking ] do |f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
-  <%= f.input :end_date, as: :date, html5: true %>
-  <%= f.submit  %>
- 
-<% end %>
-
-  <p>Booking status :
-  <% if @booking.status %>
-  Approved!
-  <% else %>
-  Pending
-  <% end %>
-</div>
-
-<div>
- <%= link_to "Back", listings_path %>
-</div>
 
