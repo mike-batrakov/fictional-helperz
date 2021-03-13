@@ -6,7 +6,7 @@
         <div class="card-profile">
           <%= image_tag "avatar.png", alt: "avatar", class: "avatar-dashboard" %>
           <div class="card-profile-infos">
-            <h2><%= current_user.username.capitalize %></h2>
+            <h3><strong><%= current_user.username.capitalize %></strong></h3>
             <p>Product description with <strong>relevant info</strong> only.</p>
           </div>
         </div>
@@ -51,7 +51,7 @@
                     <li><strong><%= request.listing.name.capitalize %></strong></li>
                     <li>When: <%= request.start_date.strftime("%A, %B #{request.start_date.day.ordinalize} %Y") %></li>
                     <li>Who's asking? <%= request.user.username.capitalize %> </li><br>
-                    <li><%= link_to "Accept", booking_path(request.id), method: :patch, class: "btn btn-success btn-sm", id: "button" %>
+                    <li><%= link_to "Accept", booking_path(request.id), method: :patch, remote: true, class: "btn btn-success btn-sm", id: "button" %>
                     <%= link_to "Decline", booking_path(request.id), method: :delete, class: "btn btn-danger btn-sm", id: "button" %>
                     </li><br><br>
           <% end %>
@@ -67,9 +67,9 @@
         <% @requests.each do |request|  %>
           <% if request.status && request.listing.user_id == current_user.id %>
 
-              <li>Service: <%= request.listing.name %></li>
+              <li><strong><%= request.listing.name %></strong></li>
               <li>When: <%= request.start_date.strftime("%A, %B #{request.start_date.day.ordinalize} %Y") %></li>
-              <li>Who's asking: <%= request.user.email %> </li><br>
+              <li>Who's asking: <%= request.user.username.capitalize %> </li><br>
           <% end %>
         <% end %>
             </div>

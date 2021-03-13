@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
   def accept
     @booking.status = true
     if @booking.save!
-      redirect_to dashboard_path
+      redirect_to dashboard_path(@booking, anchor: "button")
     else
       redirect_to :home
     end
