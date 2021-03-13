@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+
 
 puts "Cleaning DB ..."
 User.destroy_all
@@ -49,6 +52,7 @@ mary_listing = Listing.create!(
   price: 100,
   user_id: mary.id
 )
+mary_listing.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 puts 'Listing for Mary was created'
 
@@ -69,14 +73,8 @@ nazim_listing = Listing.create!(
 puts 'Listing for Nazim 1 was created'
 
 tep_listing = Listing.create!(
-<<<<<<< HEAD
-  name: "Bathuman protection",
-  description: "When I'm not preoccupied with the Bat-family, I can offer my services as a bouncer. I have experience.",
-  price: 100,
-=======
   name: "Batman, the bodyguard",
   description: "When I'm not preoccupied with the Bat-family's drama, I can offer my services as a bouncer. I have experience.",
->>>>>>> c253322e9317fc2bbedfdf181e856194d6ad1a81
   user_id: tep.id
 )
 
