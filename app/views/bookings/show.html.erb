@@ -2,21 +2,7 @@
 
 <%= @booking.listing.name%>
 <%= @booking.start_date %>
-<<<<<<< HEAD
-<%= @booking.listing.status %>
-
-<p>Booking status :
-  <% if @booking.status %>
-  Approved!
-  <% else %>
-  Pending
-  <% end %>
-</div> 
-
-<%= link_to 'Back', booking_path(booking) %>
-=======
 
 <p><%= @booking.status %></p>
 
 <%= link_to "back", dashboard_path %>
->>>>>>> master
